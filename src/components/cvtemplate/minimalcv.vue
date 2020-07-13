@@ -2,6 +2,7 @@
   <div>
     <basecv :cv="cv">
       <div>My name is : {{cv.personal.name}}</div>
+      <div>My lastname is : {{cv.personal.lastname}}</div>
     </basecv>
   </div>
 </template>
