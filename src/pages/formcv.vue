@@ -1,5 +1,12 @@
 <template>
-  <div></div>
+  <div>
+    <div>
+      <h2>Section Personal</h2>
+      <input v-model="cvdata.personal.name">
+      <input v-model="cvdata.personal.lastname">
+    </div>
+    <button @click="onConfrim">Create Cv</button>
+  </div>
 </template>
 
 <script>
@@ -17,7 +24,8 @@ export default {
           name: "",
           lastname: "",
           sex: "Male",
-          national: "Lao"
+          national: "Lao",
+          profileurl: ""
         },
         contact: {
           tel: "",
