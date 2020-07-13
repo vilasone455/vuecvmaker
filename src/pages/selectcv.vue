@@ -3,10 +3,15 @@
 </template>
 
 <script>
+import cvpreview from "../cvpreview.vue";
+
 export default {
   name: "selecv",
   props: {},
-  methods: {}
+  methods: {},
+  components: {
+    cvpreview
+  }
 };
 </script>
 
