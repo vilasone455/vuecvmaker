@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <slot :cv="cvdata"></slot>
   </div>
 </template>
 
