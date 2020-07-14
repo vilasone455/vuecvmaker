@@ -1,6 +1,11 @@
 <template>
   <div>
-  <img :src="imgurl" @click="cvclick"  />
+    <router-link v-bind:to="'/formcv/minimalcv'">
+      <div class="preview-wrapper">
+        <img src="../assets/cv1.png">
+        <span>{{cvname}}</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -9,13 +14,8 @@ export default {
   name: "cvpreview",
   props: {
     imgurl: String,
-    cvname : String,
-    cvlink : String
-  },
-  methods : {
-    cvclick(){
-      this.$router.push({path:this.cvlink})
-    }
+    cvname: String,
+    cvlink: String
   }
 };
 </script>

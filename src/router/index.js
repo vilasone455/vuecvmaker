@@ -18,7 +18,7 @@ export default new Router({
       component: selectcv
     },
     {
-      path: "/formcv/{cvname}",
+      path: "/formcv/:cvid",
       name: "formcv",
       component: formcv
     }

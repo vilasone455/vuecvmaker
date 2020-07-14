@@ -6,6 +6,7 @@
       <input v-model="cvdata.personal.lastname">
     </div>
     <button @click="onConfrim">Create Cv</button>
+    <component :is="$route.params.cvid"></component>
   </div>
 </template>
 
