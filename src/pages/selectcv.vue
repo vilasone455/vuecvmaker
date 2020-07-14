@@ -1,9 +1,9 @@
 <template>
-  <div></div>
+  <div>select list</div>
 </template>
 
 <script>
-import cvpreview from "../cvpreview.vue";
+import cvpreview from "../components/cvpreview.vue";
 
 export default {
   name: "selecv",
