@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="preview">
     <router-link v-bind:to="'/formcv/minimalcv'">
       <div class="preview-wrapper">
         <img src="../assets/cv1.png">

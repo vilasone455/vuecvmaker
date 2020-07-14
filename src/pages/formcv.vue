@@ -4,13 +4,19 @@
       <h2>Section Personal</h2>
       <input v-model="cvdata.personal.name">
       <input v-model="cvdata.personal.lastname">
+      <input v-model="cvdata.personal.sex">
+      <input v-model="cvdata.personal.national">
+      <input v-model="cvdata.personal.about">
+      <input v-model="cvdata.personal.position">
     </div>
-    <button @click="onConfrim">Create Cv</button>
-    <component :is="$route.params.cvid"></component>
+    <button @click="onConfrim">Preview Cv</button>
+    <component :is="$route.params.cvid" :cvdata="cvdata"></component>
   </div>
 </template>
 
 <script>
+import minimalcv from "../components/cvtemplate/minimalcv.vue";
+
 export default {
   name: "cvpreview",
   props: {
@@ -18,15 +24,17 @@ export default {
     cvname: String,
     cvlink: String
   },
-  datas() {
+  data() {
     return {
       cvdata: {
         personal: {
-          name: "",
-          lastname: "",
+          name: "top",
+          lastname: "phoungmixay",
           sex: "Male",
           national: "Lao",
-          profileurl: ""
+          profileurl: "",
+          about: "i want to be pirate king",
+          position: "Developer"
         },
         contact: {
           tel: "",
@@ -44,6 +52,12 @@ export default {
               end: "2018/6/1",
               major: ""
             }
+          ]
+        },
+        experience : {
+          [
+            {company : "Laotop" , position : "IT Support" , timeperiod : "2020-1-1"},
+            {company : "LaoIT" , position : "IT Teacher" , timeperiod : "2020-1-1"}
           ]
         },
         skill: {
@@ -66,6 +80,9 @@ export default {
     onConfrim() {
       this.$emit("onCvSave", this.cvdata);
     }
+  },
+  components: {
+    minimalcv
   }
 };
 </script>
