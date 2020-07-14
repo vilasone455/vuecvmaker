@@ -96,7 +96,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 //@import "bootstrap/dist/css/bootstrap.css";
-@import url("font-awesome/css/font-awesome.min.css");
+//@import url("font-awesome/css/font-awesome.min.css");
 
 #resume2 {
   font-family: "Raleway", sans-serif;

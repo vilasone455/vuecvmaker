@@ -6,11 +6,11 @@
       </div>
     </div>
     <div v-if="true" class="formsection">
-      <div v-for="(cv,name) in cvdata" :key="name">
+      <div v-for="(cv,name,index) in cvdata" :key="index">
         <h2>{{name.toUpperCase()}}</h2>
-        <div v-for="(cvhead,name) in cv" :key="name">
-          <label>{{ name }}</label>
-          <input>
+        <div v-for="(cvhead,infoname) in cv" :key="infoname">
+          <label>{{ infoname }}</label>
+          <input v-model="cvdata[name][infoname]">
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.cvdata.personal.name);
+    console.log(this.cvdata['personal'].name);
   },
   components: {
     minimalcv,
