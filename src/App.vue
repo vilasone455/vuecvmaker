@@ -1,13 +1,14 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <toolbar/>
-    <router-view></router-view>
-  </div>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-
-import toolbar from "./components/toolbar.vue";
+import toolbar from "./components/toolbar";
 export default {
   name: "App",
   components: {
@@ -17,9 +18,4 @@ export default {
 </script>
 
 <style>
-body {
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-}
 </style>
