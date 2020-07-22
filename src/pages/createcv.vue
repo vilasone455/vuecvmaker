@@ -1,18 +1,48 @@
 <template>
   <div class="page-wrapper">
-    <div class="page" :id="$route.params.resumeid">
-      <div class="page-inner">
-        <component :is="$route.params.cvid" :cvdata="cvdata"></component>
-      </div>
-    </div>
-    <formcv :cvdata="cvdata"></formcv>
+    <v-stepper value="1" alt-labels>
+      <v-row>
+        <v-col cols="12">
+          <v-stepper-header class="elevation-0">
+            <v-stepper-step step="1">Personal</v-stepper-step>
+            <v-divider></v-divider>
+            <v-stepper-step step="2">Contact</v-stepper-step>
+            <v-divider></v-divider>
+            <v-stepper-step step="3">Education</v-stepper-step>
+            <v-divider></v-divider>
+            <v-stepper-step step="4">Work Experince</v-stepper-step>
+            <v-divider></v-divider>
+            <v-stepper-step step="5">Finish</v-stepper-step>
+          </v-stepper-header>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <formcontent :cvdata="cvdata"/>
+        </v-col>
+        <div class="page" :id="$route.params.resumeid">
+          <div class="page-inner">
+            <v-sheet @click="preview = true" class="pointer">
+              <component :is="$route.params.cvid" :cvdata="cvdata" @click="preview = true"></component>
+            </v-sheet>
+          </div>
+        </div>
+        <v-dialog width="21cm" height="29cm" v-model="preview">
+          <v-sheet>
+            <component :is="$route.params.cvid" :cvdata="cvdata"></component>
+          </v-sheet>
+        </v-dialog>
+      </v-row>
+    </v-stepper>
   </div>
 </template>
 
 <script>
 import minimalcv from "../components/cvtemplate/minimalcv.vue";
 import classiccv from "../components/cvtemplate/classiccv.vue";
-import formcv from "../components/formcv.vue";
+import coolcv from "../components/cvtemplate/coolcv.vue";
+import creativecv1 from "../components/cvtemplate/creativecv1.vue";
+import formcontent from "../components/formcontent.vue";
 
 export default {
   name: "createcv",
@@ -23,6 +53,7 @@ export default {
   },
   data() {
     return {
+      preview: false,
       cvdata: {
         personal: {
           name: "top",
@@ -109,19 +140,23 @@ export default {
   components: {
     minimalcv,
     classiccv,
-    formcv
+    coolcv,
+    creativecv1,
+    formcontent
   }
 };
 </script>
 
 <style scoped>
+
+.pointer {cursor: pointer;}
+
 .page-inner {
   height: 100%;
   width: 100%;
 }
 .page-wrapper {
   overflow-x: hidden;
-  background: #CCCCCC;
   margin: 0;
   padding: 0;
   -webkit-print-color-adjust: exact;
@@ -132,11 +167,12 @@ export default {
   width: 100%;
 }
 .page {
-  background: white;
   position: relative;
   width: 21cm;
   height: 29.68cm;
   display: block;
+  transform: scale(0.5);
+  margin: -12%;
   page-break-after: auto;
   overflow: hidden;
   float: left;
