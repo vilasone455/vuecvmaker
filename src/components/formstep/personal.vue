@@ -32,7 +32,7 @@
         <v-textarea
           filled
           label="Summary"
-          value="The Woodman set to work at once, and so sharp was his axe that the tree was soon chopped nearly through."
+          value="The Woodman set to work at onces, and so sharp was his axe that the tree was soon chopped nearly through."
           v-model="cvdata.personal.about"
         ></v-textarea>
       </v-col>
